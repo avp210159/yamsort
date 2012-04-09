@@ -1,0 +1,564 @@
+table1 [32-bits] 1000 (4000/12000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                664    0.135      0.090    680    0.185      0.126
+yamsort                     628    0.193      0.121    636    0.191      0.121
+timsort                     644    0.281      0.181    652    0.300      0.196
+mmsort                      628    0.160      0.100    640    0.158      0.101
+symmsort                    612    0.237      0.145    620    0.228      0.141
+libc _quicksort             612    0.112      0.069    616    0.112      0.069
+template yamsort            632    0.065      0.041    632    0.071      0.045
+template Swenson tim_sort   644    0.092      0.059    660    0.101      0.067
+template mmsort             632    0.041      0.026    640    0.057      0.036
+template symmsort           616    0.112      0.069    624    0.128      0.080
+template Swenson quick_so   612    0.058      0.035    624    0.063      0.039
+template aamsort            616    0.054      0.033    616    0.068      0.042
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.071     0.101     0.057     0.128     0.063     0.068  
+ascending              0.004     0.003     0.004     0.012     0.016     0.004  
+descending             0.046     0.005     0.054     0.033     0.029     0.029  
+ascending   (30)       0.033     0.038     0.016     0.051     0.035     0.031  
+descending  (40)       0.054     0.077     0.055     0.068     0.041     0.043  
+descending  (100)      0.056     0.085     0.055     0.088     0.048     0.050  
+ascending   (110)      0.042     0.057     0.027     0.086     0.048     0.043  
+
+table2 [32-bits] 5000 (20000/60000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                696    0.667      0.464    776    1.126      0.874
+yamsort                     644    1.121      0.722    684    1.174      0.803
+timsort                     660    1.434      0.946    712    1.511      1.076
+mmsort                      652    0.822      0.536    708    0.856      0.606
+symmsort                    628    1.572      0.987    664    1.625      1.079
+libc _quicksort             624    0.660      0.412    664    0.663      0.440
+template yamsort            644    0.431      0.278    684    0.459      0.314
+template Swenson tim_sort   668    0.511      0.341    724    0.563      0.408
+template mmsort             656    0.264      0.173    712    0.341      0.243
+template symmsort           628    0.868      0.545    664    1.020      0.677
+template Swenson quick_so   624    0.335      0.209    668    0.374      0.250
+template aamsort            628    0.305      0.192    664    0.391      0.260
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.459     0.563     0.341     1.020     0.374     0.391  
+ascending              0.019     0.021     0.017     0.063     0.128     0.013  
+descending             0.275     0.029     0.216     0.187     0.164     0.159  
+ascending   (150)      0.218     0.249     0.117     0.368     0.234     0.192  
+descending  (200)      0.310     0.368     0.239     0.462     0.236     0.251  
+descending  (500)      0.336     0.421     0.253     0.615     0.283     0.281  
+ascending   (550)      0.282     0.333     0.169     0.606     0.298     0.263  
+
+table3 [32-bits] 10000 (40000/120000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                732    1.450      1.061    892    2.420      2.159
+yamsort                     660    2.480      1.637    748    2.590      1.937
+timsort                     688    3.070      2.112    792    3.250      2.574
+mmsort                      676    1.810      1.224    792    1.860      1.473
+symmsort                    644    3.550      2.286    724    3.680      2.664
+libc _quicksort             640    1.440      0.922    720    1.430      1.030
+template yamsort            668    0.930      0.621    748    1.010      0.755
+template Swenson tim_sort   692    1.120      0.775    800    1.220      0.976
+template mmsort             680    0.580      0.394    796    0.760      0.605
+template symmsort           640    1.960      1.254    728    2.300      1.674
+template Swenson quick_so   644    0.740      0.477    728    0.810      0.590
+template aamsort            648    0.660      0.428    724    0.860      0.623
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 1.010     1.220     0.760     2.300     0.810     0.860  
+ascending              0.030     0.030     0.040     0.120     0.260     0.030  
+descending             0.600     0.060     0.460     0.370     0.350     0.340  
+ascending   (300)      0.500     0.560     0.260     0.850     0.520     0.420  
+descending  (400)      0.700     0.810     0.500     1.010     0.510     0.530  
+descending  (1000)     0.730     0.890     0.530     1.370     0.650     0.610  
+ascending   (1100)     0.630     0.720     0.370     1.370     0.670     0.560  
+
+table4 [32-bits] 30000 (120000/360000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                888    4.800      4.262   1360    8.060     10.962
+yamsort                     748    8.770      6.560   1004    9.080      9.116
+timsort                     800   10.850      8.680   1144   11.170     12.778
+mmsort                      792    6.560      5.196   1144    6.650      7.608
+symmsort                    728   12.890      9.384    968   13.260     12.836
+libc _quicksort             720    4.800      3.456    956    4.680      4.474
+template yamsort            744    3.110      2.314    996    3.400      3.386
+template Swenson tim_sort   800    3.920      3.136   1152    4.260      4.908
+template mmsort             792    1.980      1.568   1152    2.640      3.041
+template symmsort           724    6.180      4.474    956    7.500      7.170
+template Swenson quick_so   720    2.430      1.750    960    2.720      2.611
+template aamsort            720    2.150      1.548    956    2.670      2.553
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 3.400     4.260     2.640     7.500     2.720     2.670  
+ascending              0.130     0.130     0.090     0.360     0.880     0.080  
+descending             2.070     0.180     1.770     1.320     1.200     1.160  
+ascending   (900)      1.630     1.900     0.900     2.820     1.760     1.260  
+descending  (1200)     2.370     2.990     1.990     3.390     1.740     1.650  
+descending  (3000)     2.510     3.240     2.080     4.430     2.050     1.810  
+ascending   (3300)     2.080     2.460     1.310     4.330     2.290     1.700  
+
+table5 [32-bits] 100000 (400000/1200000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               1440   17.700     25.488   2968   30.500     90.524
+yamsort                    1040   31.800     33.072   1868   33.800     63.138
+timsort                    1208   37.800     45.662   2324   39.700     92.263
+mmsort                     1212   23.100     27.997   2328   24.100     56.105
+symmsort                   1004   47.900     48.092   1784   51.100     91.162
+libc _quicksort            1000   17.300     17.300   1776   17.100     30.370
+template yamsort           1044   12.100     12.632   1868   12.800     23.910
+template Swenson tim_sort  1212   13.700     16.604   2328   15.600     36.317
+template mmsort            1212    7.400      8.969   2328    9.900     23.047
+template symmsort          1008   25.200     25.402   1780   31.200     55.536
+template Swenson quick_so  1000    9.100      9.100   1780   10.100     17.978
+template aamsort           1000    7.900      7.900   1780    9.700     17.266
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                12.800    15.600     9.900    31.200    10.100     9.700  
+ascending              0.500     0.400     0.400     1.300     3.400     0.300  
+descending             7.600     0.600     6.000     4.600     4.300     4.300  
+ascending   (3000)     6.500     7.400     3.600    11.200     6.900     4.500  
+descending  (4000)     9.100    10.500     6.700    13.500     6.600     5.500  
+descending  (10000)    9.400    11.200     7.300    18.800     7.800     6.400  
+ascending   (11000)    7.900     9.000     5.000    17.100     8.800     5.900  
+
+table6 [32-bits] 300000 (1200000/3600000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               2968   57.300    170.066   7660   99.700    763.702
+yamsort                    1864  101.800    189.755   4296  108.600    466.546
+timsort                    2328  113.100    263.297   5532  120.000    663.840
+mmsort                     2324   72.100    167.560   5844   77.200    451.157
+symmsort                   1784  160.800    286.867   4128  177.500    732.720
+libc _quicksort            1780   57.000    101.460   4124   55.800    230.119
+template yamsort           1872   41.300     77.314   4296   43.800    188.165
+template Swenson tim_sort  2332   44.800    104.474   5536   50.800    281.229
+template mmsort            2332   24.900     58.067   5844   33.000    192.852
+template symmsort          1780   93.100    165.718   4128  115.100    475.133
+template Swenson quick_so  1780   29.500     52.510   4128   33.000    136.224
+template aamsort           1780   26.100     46.458   4124   35.600    146.814
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                43.800    50.800    33.000   115.100    33.000    35.600  
+ascending              1.200     1.300     1.100     3.700    11.700     0.800  
+descending            24.400     2.000    17.400    14.600    14.200    13.500  
+ascending   (9000)    22.200    25.000    12.700    39.600    22.900    16.400  
+descending  (12000)   28.500    32.300    20.100    46.200    21.900    19.600  
+descending  (30000)   30.500    36.400    21.600    60.600    26.200    22.100  
+ascending   (33000)   27.100    31.000    16.900    61.000    29.800    21.100  
+
+table7 [32-bits] 1000000 (4000000/12000000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               8440  206.400   1742.016  24068  368.100   8859.431
+yamsort                    4696  392.000   1840.832  12956  414.900   5375.444
+timsort                    6088  446.700   2719.510  16852  486.200   8193.442
+mmsort                     6428  287.700   1849.336  18148  304.900   5533.325
+symmsort                   4520  619.000   2797.880  12332  678.900   8372.195
+libc _quicksort            4516  206.700    933.457  12328  203.200   2505.050
+template yamsort           4704  149.900    705.130  12960  161.300   2090.448
+template Swenson tim_sort  6096  168.700   1028.395  16860  195.800   3301.188
+template mmsort            6432   94.200    605.894  18148  126.600   2297.537
+template symmsort          4520  310.000   1401.200  12332  396.500   4889.638
+template Swenson quick_so  4512  108.000    487.296  12332  123.400   1521.769
+template aamsort           4520   91.200    412.224  12328  114.800   1415.254
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random               161.300   195.800   126.600   396.500   123.400   114.800  
+ascending              4.400     4.400     3.400    12.500    41.300     2.600  
+descending            93.500     7.000    78.100    51.000    53.100    53.400  
+ascending   (30000)   85.400    95.600    47.400   146.100    89.500    54.300  
+descending  (40000)  108.400   135.200    86.600   170.600    81.000    67.600  
+descending  (100000) 115.400   143.200    93.900   216.300    96.600    75.000  
+ascending   (110000)  99.300   113.100    63.200   215.800   113.800    71.000  
+
+table8 [32-bits] 1000 (4000/12000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                664    0.099      0.066    680    0.170      0.116
+yamsort                     628    0.158      0.099    636    0.162      0.103
+timsort                     644    0.235      0.151    652    0.257      0.168
+mmsort                      624    0.134      0.084    640    0.130      0.083
+symmsort                    616    0.174      0.107    624    0.182      0.114
+libc _quicksort             612    0.081      0.050    620    0.075      0.046
+template yamsort            628    0.044      0.028    636    0.052      0.033
+template Swenson tim_sort   648    0.072      0.047    660    0.080      0.053
+template mmsort             632    0.025      0.016    644    0.040      0.026
+template symmsort           616    0.089      0.055    624    0.099      0.062
+template Swenson quick_so   616    0.150      0.092    628    0.196      0.123
+template aamsort            616    0.040      0.025    620    0.051      0.032
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.052     0.080     0.040     0.099     0.196     0.051  
+ascending              0.041     0.055     0.032     0.071     0.196     0.027  
+descending             0.043     0.059     0.034     0.072     0.190     0.035  
+ascending   (30)       0.050     0.069     0.036     0.089     0.197     0.043  
+descending  (40)       0.051     0.071     0.039     0.095     0.189     0.047  
+descending  (100)      0.053     0.075     0.040     0.099     0.192     0.048  
+ascending   (110)      0.053     0.075     0.037     0.097     0.196     0.047  
+
+table9 [32-bits] 5000 (20000/60000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                696    0.524      0.365    772    1.008      0.778
+yamsort                     644    0.903      0.582    688    0.957      0.658
+timsort                     660    1.190      0.785    716    1.275      0.913
+mmsort                      648    0.637      0.413    708    0.650      0.460
+symmsort                    628    0.953      0.598    664    1.009      0.670
+libc _quicksort             624    0.470      0.293    664    0.431      0.286
+template yamsort            648    0.280      0.181    688    0.319      0.219
+template Swenson tim_sort   664    0.375      0.249    724    0.425      0.308
+template mmsort             652    0.139      0.091    708    0.206      0.146
+template symmsort           624    0.565      0.353    668    0.671      0.448
+template Swenson quick_so   672    3.308      2.223    716    4.216      3.019
+template aamsort            628    0.196      0.123    664    0.272      0.181
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.319     0.425     0.206     0.671     4.216     0.272  
+ascending              0.271     0.275     0.159     0.525     4.181     0.174  
+descending             0.276     0.308     0.167     0.521     4.149     0.195  
+ascending   (150)      0.296     0.327     0.187     0.599     4.191     0.218  
+descending  (200)      0.303     0.364     0.198     0.630     4.153     0.245  
+descending  (500)      0.325     0.393     0.209     0.654     4.186     0.276  
+ascending   (550)      0.314     0.369     0.203     0.640     4.185     0.255  
+
+table10 [32-bits] 10000 (40000/120000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                732    1.100      0.805    888    2.190      1.945
+yamsort                     660    1.920      1.267    744    2.040      1.518
+timsort                     688    2.510      1.727    796    2.680      2.133
+mmsort                      676    1.370      0.926    792    1.380      1.093
+symmsort                    644    1.940      1.249    724    2.110      1.528
+libc _quicksort             640    1.010      0.646    724    0.930      0.673
+template yamsort            672    0.620      0.417    748    0.690      0.516
+template Swenson tim_sort   696    0.810      0.564    800    0.880      0.704
+template mmsort             680    0.280      0.190    800    0.440      0.352
+template symmsort           644    1.190      0.766    724    1.410      1.021
+template Swenson quick_so   744   13.230      9.843    828   16.440     13.612
+template aamsort            648    0.410      0.266    724    0.580      0.420
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.690     0.880     0.440     1.410    16.440     0.580  
+ascending              0.610     0.600     0.320     1.160    16.470     0.390  
+descending             0.610     0.670     0.350     1.140    16.510     0.440  
+ascending   (300)      0.660     0.700     0.380     1.280    16.470     0.470  
+descending  (400)      0.670     0.760     0.420     1.320    16.410     0.510  
+descending  (1000)     0.710     0.830     0.430     1.390    16.490     0.560  
+ascending   (1100)     0.710     0.780     0.430     1.350    16.460     0.500  
+
+table11 [32-bits] 30000 (120000/360000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                888    3.530      3.135   1344    7.150      9.610
+yamsort                     748    7.040      5.266   1000    7.150      7.150
+timsort                     800    8.620      6.896   1148    9.560     10.975
+mmsort                      792    4.870      3.857   1144    4.950      5.663
+symmsort                    720    6.480      4.666    956    6.970      6.663
+libc _quicksort             720    3.380      2.434    952    3.040      2.894
+template yamsort            756    1.820      1.376   1000    2.260      2.260
+template Swenson tim_sort   796    2.630      2.093   1152    3.000      3.456
+template mmsort             800    0.970      0.776   1152    1.520      1.751
+template symmsort           724    3.250      2.353    960    4.040      3.878
+template Swenson quick_so  1016  117.030    118.902   1260  145.470    183.292
+template aamsort            724    1.230      0.891    956    1.720      1.644
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 2.260     3.000     1.520     4.040   145.470     1.720  
+ascending              1.990     2.310     1.310     3.260   145.280     1.220  
+descending             2.050     2.390     1.330     3.380   145.570     1.330  
+ascending   (900)      2.160     2.680     1.410     3.800   145.590     1.420  
+descending  (1200)     2.210     2.780     1.490     3.920   145.400     1.560  
+descending  (3000)     2.270     2.930     1.530     4.030   145.440     1.690  
+ascending   (3300)     2.290     3.030     1.500     3.940   145.660     1.560  
+
+table12 [32-bits] 100000 (400000/1200000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               1424   12.600     17.942   2916   26.500     77.274
+yamsort                    1048   24.300     25.466   1900   25.500     48.450
+timsort                    1208   29.200     35.274   2324   31.500     73.206
+mmsort                     1208   16.500     19.932   2324   17.400     40.438
+symmsort                   1000   21.400     21.400   1784   23.700     42.281
+libc _quicksort            1000   12.400     12.400   1784   11.100     19.802
+template yamsort           1048    6.800      7.126   1896    8.500     16.116
+template Swenson tim_sort  1208    9.200     11.114   2328   10.600     24.677
+template mmsort            1212    3.300      4.000   2332    6.200     14.458
+template symmsort          1004   12.400     12.450   1788   15.100     26.999
+template Swenson quick_sort not executed
+template aamsort           1000    4.100      4.100   1776    6.000     10.656
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 8.500    10.600     6.200    15.100   no data     6.000  
+ascending              7.600     8.300     5.200    12.300   no data     4.400  
+descending             7.800     8.500     5.200    12.600   no data     4.900  
+ascending   (3000)     8.000     9.700     5.400    13.900   no data     4.900  
+descending  (4000)     8.300     9.800     5.500    14.500   no data     5.500  
+descending  (10000)    8.400    10.200     5.600    14.900   no data     5.800  
+ascending   (11000)    8.600    10.200     5.600    14.700   no data     5.400  
+
+table13 [32-bits] 300000 (1200000/3600000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               2912   40.500    117.936   7484   88.200    660.089
+yamsort                    1904   75.400    143.562   4428   83.800    371.066
+timsort                    2328   89.800    209.054   5528   98.700    545.614
+mmsort                     2324   51.100    118.756   5844   54.600    319.082
+symmsort                   1784   63.400    113.106   4128   72.900    300.931
+libc _quicksort            1776   40.600     72.106   4124   36.600    150.938
+template yamsort           1912   23.100     44.167   4428   28.300    125.312
+template Swenson tim_sort  2332   28.800     67.162   5532   34.500    190.854
+template mmsort            2328   10.700     24.910   5844   17.600    102.854
+template symmsort          1784   39.100     69.754   4128   49.600    204.749
+template Swenson quick_sort not executed
+template aamsort           1784   13.900     24.798   4124   20.700     85.367
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                28.300    34.500    17.600    49.600   no data    20.700  
+ascending             25.700    27.600    14.900    42.500   no data    15.200  
+descending            25.800    28.200    15.000    43.600   no data    17.000  
+ascending   (9000)    26.600    30.700    16.100    47.300   no data    17.500  
+descending  (12000)   27.700    32.700    17.000    48.500   no data    19.200  
+descending  (30000)   28.300    34.400    17.500    48.800   no data    20.000  
+ascending   (33000)   27.700    33.000    17.200    48.700   no data    19.200  
+
+table14 [32-bits] 1000000 (4000000/12000000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               8256  140.000   1155.840  23492  321.800   7559.726
+yamsort                    4868  288.300   1403.444  13440  305.900   4111.296
+timsort                    6088  350.400   2133.235  16856  379.300   6393.481
+mmsort                     6432  202.100   1299.907  18144  212.100   3848.342
+symmsort                   4520  222.900   1007.508  12332  262.300   3234.684
+libc _quicksort            4516  152.400    688.238  12328  132.600   1634.693
+template yamsort           4868   80.800    393.334  13440  104.000   1397.760
+template Swenson tim_sort  6096  108.000    658.368  16860  128.400   2164.824
+template mmsort            6436   38.200    245.855  18152   67.500   1225.260
+template symmsort          4520  119.400    539.688  12332  163.200   2012.582
+template Swenson quick_sort not executed
+template aamsort           4520   45.600    206.112  12328   69.800    860.494
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random               104.000   128.400    67.500   163.200   no data    69.800  
+ascending             93.200   105.300    60.000   135.200   no data    50.800  
+descending            94.300   105.900    61.900   138.500   no data    54.100  
+ascending   (30000)   98.100   117.400    64.700   150.500   no data    56.000  
+descending  (40000)  100.500   119.300    67.000   156.400   no data    62.300  
+descending  (100000) 102.100   123.200    66.900   159.100   no data    65.100  
+ascending   (110000) 103.900   123.800    66.900   159.000   no data    63.200  
+
+table15 [32-bits] 1000 (4000/12000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                664    0.113      0.075    684    0.183      0.125
+yamsort                     628    0.185      0.116    636    0.185      0.118
+timsort                     644    0.280      0.180    652    0.291      0.190
+mmsort                      628    0.155      0.097    640    0.154      0.099
+symmsort                    616    0.234      0.144    624    0.227      0.142
+libc _quicksort             616    0.094      0.058    620    0.090      0.056
+template yamsort            632    0.059      0.037    636    0.068      0.043
+template Swenson tim_sort   648    0.091      0.059    660    0.100      0.066
+template mmsort             632    0.039      0.025    644    0.055      0.035
+template symmsort           612    0.109      0.067    620    0.124      0.077
+template Swenson quick_so   612    0.043      0.026    624    0.050      0.031
+template aamsort            612    0.052      0.032    620    0.063      0.039
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.068     0.100     0.055     0.124     0.050     0.063  
+ascending              0.030     0.017     0.019     0.061     0.180     0.027  
+descending             0.048     0.025     0.047     0.075     0.047     0.034  
+ascending   (30)       0.042     0.057     0.027     0.090     0.078     0.043  
+descending  (40)       0.059     0.080     0.053     0.108     0.052     0.053  
+descending  (100)      0.062     0.092     0.054     0.114     0.049     0.054  
+ascending   (110)      0.054     0.072     0.039     0.109     0.055     0.052  
+
+table16 [32-bits] 5000 (20000/60000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                696    0.634      0.441    768    1.111      0.853
+yamsort                     640    1.055      0.675    684    1.100      0.752
+timsort                     660    1.367      0.902    716    1.471      1.053
+mmsort                      652    0.764      0.498    708    0.775      0.549
+symmsort                    624    1.443      0.900    668    1.499      1.001
+libc _quicksort             620    0.536      0.332    668    0.497      0.332
+template yamsort            648    0.356      0.231    688    0.397      0.273
+template Swenson tim_sort   668    0.476      0.318    724    0.526      0.381
+template mmsort             656    0.205      0.134    712    0.287      0.204
+template symmsort           624    0.813      0.507    668    0.949      0.634
+template Swenson quick_so   628    0.508      0.319    672    0.633      0.425
+template aamsort            624    0.277      0.173    660    0.349      0.230
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.397     0.526     0.287     0.949     0.633     0.349  
+ascending              0.225     0.155     0.110     0.580     1.278     0.188  
+descending             0.294     0.154     0.207     0.651     0.574     0.245  
+ascending   (150)      0.286     0.312     0.167     0.758     0.707     0.249  
+descending  (200)      0.350     0.420     0.254     0.820     0.597     0.286  
+descending  (500)      0.366     0.466     0.280     0.881     0.609     0.310  
+ascending   (550)      0.342     0.391     0.224     0.862     0.660     0.293  
+
+table17 [32-bits] 10000 (40000/120000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                732    1.310      0.959    888    2.340      2.078
+yamsort                     660    2.230      1.472    748    2.340      1.750
+timsort                     684    2.870      1.963    796    3.070      2.444
+mmsort                      680    1.620      1.102    788    1.640      1.292
+symmsort                    644    3.010      1.938    724    3.170      2.295
+libc _quicksort             640    1.120      0.717    720    1.050      0.756
+template yamsort            668    0.760      0.508    752    0.870      0.654
+template Swenson tim_sort   696    0.970      0.675    800    1.130      0.904
+template mmsort             684    0.430      0.294    796    0.600      0.478
+template symmsort           644    1.710      1.101    724    2.040      1.477
+template Swenson quick_so   648    1.660      1.076    732    2.140      1.566
+template aamsort            648    0.560      0.363    720    0.740      0.533
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 0.870     1.130     0.600     2.040     2.140     0.740  
+ascending              0.510     0.360     0.240     1.280     3.480     0.380  
+descending             0.660     0.350     0.450     1.470     2.110     0.500  
+ascending   (300)      0.630     0.680     0.360     1.620     2.220     0.500  
+descending  (400)      0.770     0.870     0.540     1.770     2.130     0.580  
+descending  (1000)     0.810     0.970     0.580     1.900     2.120     0.630  
+ascending   (1100)     0.750     0.830     0.490     1.850     2.180     0.590  
+
+table18 [32-bits] 30000 (120000/360000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort                888    4.130      3.667   1360    7.590     10.322
+yamsort                     744    7.810      5.811   1000    8.190      8.190
+timsort                     800   10.150      8.120   1144   10.720     12.264
+mmsort                      792    5.830      4.617   1148    5.780      6.635
+symmsort                    728   10.060      7.324    960   10.690     10.262
+libc _quicksort             720    3.640      2.621    956    3.360      3.212
+template yamsort            748    2.360      1.765   1000    2.760      2.760
+template Swenson tim_sort   800    3.240      2.592   1152    3.710      4.274
+template mmsort             792    1.340      1.061   1152    2.010      2.316
+template symmsort           724    4.990      3.613    960    6.130      5.885
+template Swenson quick_so   752   12.640      9.505    996   16.110     16.046
+template aamsort            720    1.690      1.217    956    2.180      2.084
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                 2.760     3.710     2.010     6.130    16.110     2.180  
+ascending              1.800     1.210     1.030     4.430    20.110     1.300  
+descending             2.270     1.340     1.730     5.000    16.010     1.540  
+ascending   (900)      2.070     2.520     1.280     5.130    16.380     1.490  
+descending  (1200)     2.540     3.230     1.920     5.580    16.110     1.740  
+descending  (3000)     2.640     3.470     2.040     5.820    15.830     1.930  
+ascending   (3300)     2.430     2.930     1.630     5.720    16.320     1.820  
+
+table19 [32-bits] 100000 (400000/1200000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               1440   14.600     21.024   2972   28.200     83.810
+yamsort                    1036   27.800     28.801   1872   29.700     55.598
+timsort                    1208   34.000     41.072   2324   36.200     84.129
+mmsort                     1212   19.500     23.634   2324   20.200     46.945
+symmsort                   1004   34.100     34.236   1784   37.000     66.008
+libc _quicksort            1000   13.100     13.100   1776   12.700     22.555
+template yamsort           1044    8.700      9.083   1872   10.000     18.720
+template Swenson tim_sort  1212   11.100     13.453   2328   12.900     30.031
+template mmsort            1212    4.600      5.575   2328    7.100     16.529
+template symmsort          1004   18.400     18.474   1788   23.200     41.482
+template Swenson quick_sort not executed
+template aamsort           1000    5.600      5.600   1772    7.700     13.644
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                10.000    12.900     7.100    23.200   no data     7.700  
+ascending              6.800     5.000     3.800    16.000   no data     4.300  
+descending             8.800     5.400     5.900    17.500   no data     5.300  
+ascending   (3000)     8.500     9.300     4.600    19.700   no data     5.200  
+descending  (4000)     9.600    11.300     6.700    20.400   no data     5.900  
+descending  (10000)    9.700    11.900     7.300    22.000   no data     6.500  
+ascending   (11000)    8.900    10.600     5.900    21.400   no data     6.200  
+
+table20 [32-bits] 300000 (1200000/3600000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               2964   46.400    137.530   7640   94.500    721.980
+yamsort                    1868   85.200    159.154   4304   92.000    395.968
+timsort                    2328  101.100    235.361   5532  110.000    608.520
+mmsort                     2324   59.600    138.510   5844   63.100    368.756
+symmsort                   1784  101.800    181.611   4128  115.800    478.022
+libc _quicksort            1780   43.200     76.896   4124   39.900    164.548
+template yamsort           1872   28.800     53.914   4308   33.000    142.164
+template Swenson tim_sort  2328   34.600     80.549   5536   41.200    228.083
+template mmsort            2328   15.200     35.386   5844   22.200    129.737
+template symmsort          1784   63.000    112.392   4128   77.800    321.158
+template Swenson quick_sort not executed
+template aamsort           1784   17.600     31.398   4124   24.800    102.275
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random                33.000    41.200    22.200    77.800   no data    24.800  
+ascending             22.900    17.700    12.100    56.800   no data    15.000  
+descending            27.600    18.600    18.000    60.400   no data    17.900  
+ascending   (9000)    26.000    29.600    15.500    66.400   no data    17.500  
+descending  (12000)   29.700    35.300    20.800    70.000   no data    20.200  
+descending  (30000)   31.700    38.800    21.900    73.500   no data    22.000  
+ascending   (33000)   30.000    34.100    19.500    72.900   no data    20.900  
+
+table21 [32-bits] 1000000 (4000000/12000000 bytes max_key_value 99)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort               8428  160.800   1355.222  24016  340.200   8170.243
+yamsort                    4696  323.900   1521.034  12956  345.900   4481.480
+timsort                    6088  393.600   2396.237  16856  435.700   7344.159
+mmsort                     6432  234.900   1510.877  18144  243.400   4416.250
+symmsort                   4520  357.600   1616.352  12332  411.400   5073.385
+libc _quicksort            4516  159.200    718.947  12332  141.800   1748.678
+template yamsort           4704   99.700    468.989  12960  118.400   1534.464
+template Swenson tim_sort  6096  136.200    830.275  16856  149.000   2511.544
+template mmsort            6432   53.000    340.896  18148   82.100   1489.951
+template symmsort          4520  188.500    852.020  12328  249.000   3069.672
+template Swenson quick_sort not executed
+template aamsort           4520   58.900    266.228  12332   84.900   1046.987
+
+data[] (rand swap)    yamsort   tim_sort   mmsort   symmsort quick_sort aamsort
+random               118.400   149.000    82.100   249.000   no data    84.900  
+ascending             86.000    68.300    50.500   192.400   no data    50.300  
+descending           102.500    72.900    74.700   206.500   no data    64.300  
+ascending   (30000)   95.300   114.900    60.500   218.400   no data    59.800  
+descending  (40000)  110.900   139.800    82.900   233.500   no data    67.700  
+descending  (100000) 116.800   144.100    87.400   238.800   no data    74.000  
+ascending   (110000) 103.400   129.400    72.500   236.100   no data    70.100  
+
+table22 [32-bits] 5000000 (20000000/60000000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort              39692 1157.000  45923.644 117820 2028.000 238938.960
+yamsort                   21144 2099.000  44381.256  62300 2278.000 141919.400
+timsort                   27740 2248.000  62359.520  81748 2457.000 200854.836
+mmsort                    29868 1472.000  43965.696  88464 1601.000 141630.864
+symmsort                  20108 3508.000  70538.864  59176 4014.000 237532.464
+libc _quicksort           20104 1158.000  23280.432  59168 1122.000  66386.496
+template yamsort          21144  884.000  18691.296  62304  939.000  58503.456
+template Swenson tim_sort 27740  918.000  25465.320  81748 1060.000  86652.880
+template mmsort           29868  535.000  15979.380  88464  710.000  62809.440
+template symmsort         20108 2042.000  41060.536  59176 2618.000 154922.768
+template Swenson quick_so 20104  618.000  12424.272  59176  694.000  41068.144
+template aamsort          20108  521.000  10476.268  59172  671.000  39704.412
+
+table23 [32-bits] 10000000 (40000000/120000000 bytes max_key_value 2147483646)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort              78756 2385.000 187833.060 235008 4289.000 1007949.312
+yamsort                   41684 4480.000 186744.320 123968 4729.000 586244.672
+timsort                   54760 4686.000 256605.360 162800 5057.000 823279.600
+mmsort                    59164 3100.000 183408.400 176348 3333.000 587767.884
+symmsort                  39640 7441.000 294961.240 117768 8637.000 1017162.216
+libc _quicksort           39632 2393.000  94839.376 117764 2355.000 277334.220
+template yamsort          41692 1826.000  76129.592 123968 1978.000 245208.704
+template Swenson tim_sort 54760 1895.000 103770.200 162808 2192.000 356875.136
+template mmsort           59164 1112.000  65790.368 176352 1469.000 259061.088
+template symmsort         39640 4364.000 172988.960 117772 5616.000 661407.552
+template Swenson quick_so 39636 1253.000  49663.908 117768 1471.000 173236.728
+template aamsort          39640 1073.000  42533.720 117764 1407.000 165693.948
+
+table24 [32-bits] 5000000 (20000000/60000000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort              38720  764.000  29582.080 114896 1784.000 204974.464
+yamsort                   22024 1523.000  33542.552  64888 1666.000 108103.408
+timsort                   27740 1760.000  48822.400  81748 1889.000 154421.972
+mmsort                    29868  996.000  29748.528  88460 1086.000  96067.560
+symmsort                  20108 1090.000  21917.720  59176 1358.000  80361.008
+libc _quicksort           20104  839.000  16867.256  59172  746.000  44142.312
+template yamsort          22024  461.000  10153.064  64884  601.000  38995.284
+template Swenson tim_sort 27744  555.000  15397.920  81748  680.000  55588.640
+template mmsort           29872  210.000   6273.120  88468  359.000  31760.012
+template symmsort         20108  696.000  13995.168  59176  951.000  56276.376
+template Swenson quick_sort not executed
+template aamsort          20108  255.000   5127.540  59172  410.000  24260.520
+
+table25 [32-bits] 10000000 (40000000/120000000 bytes max_key_value 9)
+                          VmHWMi timei    Costi      VmHWMd timed    Costd   
+system qsort              76800 1589.000 122035.200 229144 3786.000 867539.184
+yamsort                   43500 3175.000 138112.500 129368 3464.000 448130.752
+timsort                   54760 3638.000 199216.880 162804 3960.000 644703.840
+mmsort                    59164 2069.000 122410.316 176352 2271.000 400495.392
+symmsort                  39644 2215.000  87811.460 117768 2782.000 327630.576
+libc _quicksort           39632 1761.000  69791.952 117764 1592.000 187480.288
+template yamsort          43500  978.000  42543.000 129364 1229.000 158988.356
+template Swenson tim_sort 54760 1167.000  63904.920 162808 1423.000 231675.784
+template mmsort           59168  431.000  25501.408 176356  754.000 132972.424
+template symmsort         39640 1404.000  55654.560 117764 1950.000 229639.800
+template Swenson quick_sort not executed
+template aamsort          39640  538.000  21326.320 117764  853.000 100452.692
+
