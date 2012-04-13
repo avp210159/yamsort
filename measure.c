@@ -570,9 +570,9 @@ main (int ac, char **av)
 	      printf ("Invalid sort\n");
 	    else 
 	      printf ("OK\n");
+	  } else {
+	    printf ("long long check not implemented\n");
 	  }
-	} else {
-	  printf ("long long check not implemented");
 	}
       }
     } else {
