@@ -185,7 +185,7 @@ typedef struct {
     *afirst,    // начало всего массива
     *alast;     // его конец
   int   bsize,  // количество элементов, размещаемых в блоке очереди
-    totbsz;     // размер блока очереди в байтах
+    totbsz;     // размер блока очереди в байтах align 64-bit
 } DATA_QUEUE;
 /*
 // The control unit queue and free blocks
@@ -198,7 +198,7 @@ typedef struct {
     * afirst,  // ​​the beginning of the array
     * alast;   // to the end
   int bsize,   // ​​number of items placed in the block queue
-    totbsz;    // block size in bytes of the queue
+    totbsz;    // block size in bytes of the queue align 64-bit
 } DATA_QUEUE;
 */
 
@@ -261,11 +261,12 @@ enq (DATA_QUEUE *q, SORT_TYPE *lcur, void *rfile)
       if (q->aflist = bp->h.next)
 	q->aflist->h.prev = NULL;
     } else {
-      if ((char *)rfile - (char *)q->ffree > q->totbsz) {
+      char *rfree = (char *)((long)((char *)q->ffree + 7) & ~7);
+      if ((char *)rfile - rfree > q->totbsz) {
 	// разместим новый блок очереди в массиве
 	// place a new block of the queue in the array
-	bp = (Q_BLOCK *)q->ffree;
-	q->ffree = (char *)q->ffree + q->totbsz;
+	bp = (Q_BLOCK *)rfree;
+	q->ffree = rfree + q->totbsz;
 	if (!q->falloc)  // размещаем первый блок в правой части
 	  q->falloc = bp;// place the first block on the right side
       } else {
@@ -705,7 +706,7 @@ YAMSORT(SORT_TYPE *a, const size_t size)
   } 
   q->afirst = a;
   q->alast = a + size;
-  q->totbsz = sizeof(QBLOCK_HDR) + q->bsize*sizeof(*a);
+  q->totbsz = (sizeof(QBLOCK_HDR) + q->bsize*sizeof(*a) + 7) & ~7;
   // выделим первый блок очереди и поместим его в список свободных
   // allocate the first block of the queue and place it in the free list
   q->flist = p = (Q_BLOCK *)malloc(q->totbsz);
