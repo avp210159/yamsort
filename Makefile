@@ -4,6 +4,14 @@ CFLAGS        = -Dlinux -O3 -DTHREAD_CLOCK
 endif
 LDFLAGS	      = -lrt
 CC	      = gcc
+ifndef ASM64
+ASMFLAG		= -DNOASM 
+ASMOBJ		=
+else
+ASMFLAG    	= -DASM64 -I./asmSort
+ASMOBJ		= ./asmSort/Sort.o
+endif
+
 
 SHELL	      = /bin/sh
 
@@ -13,7 +21,8 @@ SRCS =  mutime.c measure.c int_sort.c data_sort.c \
 	int_aamsort.c data_aamsort.c \
 	int_gqsort.c data_gqsort.c \
 	timsort.c mmsort.c \
-	symmsort.c qsort.c 
+	symmsort.c qsort.c \
+	asm64_Sort.c
 
 OBJS =  mutime.o int_sort.o data_sort.o \
 	yamsort.o int_yamsort.o data_yamsort.o \
@@ -21,7 +30,8 @@ OBJS =  mutime.o int_sort.o data_sort.o \
 	int_aamsort.o data_aamsort.o \
 	int_gqsort.o data_gqsort.o \
 	timsort.o mmsort.o \
-	symmsort.o qsort.o
+	symmsort.o qsort.o \
+	asm64_Sort.o
 
 
 PROG = measure prirestab
@@ -33,7 +43,11 @@ prirestab: prirestab.c
 	$(CC) $(CFLAGS)  -o $@ $< 
 
 measure: measure.c $(OBJS) 
-	$(CC) $(CFLAGS)  -o $@ $< $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS)  -o $@ $< $(OBJS) $(LDFLAGS) $(ASMOBJ)
+
+asm64_Sort.o:	asm64_Sort.c
+	$(CC) $(CFLAGS) $(ASMFLAG) -c $<
+
 
 clean:;		@rm -f *.o *.exe *~ *.bak *.BAK a.out ${PROG}
 
