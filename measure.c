@@ -34,28 +34,6 @@ fill (int a[], int n, int m)
     a[i] = rand() % m;
 }
 
-static void
-verifyll (long long a[], int n)
-{
-  int  i;
-
-  for (i = 1; i < n; i++) {
-    if (a[i] < a[i-1]) {
-      printf ("verify: Failure in %d\n",i);
-      return;
-    }
-  }
-  printf ("verify: OK\n");
-}
-
-static void 
-filll (long long a[], int n, int m)
-{
-  int i;
-  for (i = 0; i < n; i++)
-    a[i] = rand() % m;
-}
-
 // returns text of filld type
 static char *
 filld (struct data a[], int n, int m, int how)
@@ -153,15 +131,6 @@ licmp (const void *a1, const void *a2)
   return (n1 < n2)? -1: (n1 == n2)? 0: 1;
 }
 
-
-static int
-llcmp (const void *a1, const void *a2)
-{
-  long long n1 = *(long long *)a1, n2 = *(long long *)a2;
-
-  return (n1 < n2)? -1: (n1 == n2)? 0: 1;
-}
-
 static int
 ldcmp (const void *a1, const void *a2)
 {
@@ -192,9 +161,9 @@ extern void int_yamsort(),
   data_quick_sort(),
   int_aamsort(),
   data_aamsort(),
+  int_gqsort(),
+  data_gqsort(),
   int_symsort(),
-  ll_tim_sort(),
-  ll_yamsort(),
   data_symsort();
 
 static void
@@ -218,8 +187,7 @@ static struct sortfunc flist[] = {
   {"template symmsort",0,int_symsort,data_symsort},
   {"template Swenson quick_sort",0,int_quick_sort,data_quick_sort},
   {"template aamsort",0,int_aamsort,data_aamsort},
-  {"*template lltimsort",0,ll_tim_sort,NULL},
-  {"*template llyamsort",0,ll_yamsort,NULL},
+  {"template gnu_qsort",0,int_gqsort,data_gqsort},
   {NULL,0,NULL,NULL}
 };
 static int maxfl = sizeof(flist)/sizeof(flist[0])-1;
@@ -478,101 +446,59 @@ main (int ac, char **av)
       prilist();
       exit (EX_USAGE);
     }
-  } else {  // sort int[] or long long
+  } else {  // sort int[]
     int *a;
-    long long *la;
-
     cmp = licmp;
 
     if (sort >=0 && sort < maxfl)
       fsort = flist[sort].sort_int;
     if (fsort) {
-      int llong = flist[sort].name[0] == '*';
-      if (llong) {
-	cmp = llcmp;
-	la = malloc(n*sizeof(*la));
-	filll (la,n,m);
-      }  else {
-	a = malloc(n*sizeof(*a));
-	fill (a,n,m);
-      }
+      a = malloc(n*sizeof(*a));
+      fill (a,n,m);
+
       if (loops) {
-	printf ("Sort (%s) %s %d loops algorithm %s (%d elements (%ld bytes) %d max-value)\n",
-		getbits(), llong ? "long long []":"int []",
-		loops,flist[sort].name,n,(long)n*sizeof(*a),m-1);
+	printf ("Sort (%s) int[] %d loops algorithm %s (%d elements (%ld bytes) %d max-value)\n",
+		getbits(),loops,flist[sort].name,n,(long)n*sizeof(*a),m-1);
 
 	int i;
 	start = mutime();
-	if (llong) {
-	  for (i = 0; i < loops; i++) {
-	    filll (la,n,m);
-	    if (flist[sort].type)
-	      fsort (la,n,sizeof(*la),cmp);
-	    else
-	      fsort (la,n);
-	  }
-	} else {
-	  for (i = 0; i < loops; i++) {
-	    fill (a,n,m);
-	    if (flist[sort].type)
-	      fsort (a,n,sizeof(*a),cmp);
-	    else
-	      fsort (a,n);
-	  }
-	}
-	tt =  rnd(mutime() - start,1000);
-	if (llong)
-	  verifyll (la,n);
-	else
-	  verify (a,n);
-	printf ("get array fill time\n");
-	start = mutime();
-	if (llong)
-	  for (i = 0; i < loops; i++) {
-	    filll (la,n,m);
-	  }
-	else
-	  for (i = 0; i < loops; i++) {
-	    fill (a,n,m);
-	  }
-	ttf =  rnd(mutime() - start,1000);
-      } else {
-	printf ("Sort (%s) %s algorithm %s (%d elements (%ld bytes) %d max-value)\n",
-		getbits(), llong ? "long long []":"int []",
-		flist[sort].name,n,(long)n*sizeof(*a),m-1);
-	start = mutime();
-	if (llong) {
-	  if (flist[sort].type)
-	    fsort (la,n,sizeof(*la),cmp);
-	  else 
-	    fsort (la,n);
-	} else {
+	for (i = 0; i < loops; i++) {
+	  fill (a,n,m);
 	  if (flist[sort].type)
 	    fsort (a,n,sizeof(*a),cmp);
-	  else 
+	  else
 	    fsort (a,n);
 	}
+	tt =  rnd(mutime() - start,1000);
+	verify (a,n);
+	printf ("get array fill time\n");
+	start = mutime();
+	for (i = 0; i < loops; i++) {
+	  fill (a,n,m);
+	}
+	ttf =  rnd(mutime() - start,1000);
+      } else {
+	printf ("Sort (%s) int[] algorithm %s (%d elements (%ld bytes) %d max-value)\n",
+		getbits(),flist[sort].name,n,(long)n*sizeof(*a),m-1);
+	start = mutime();
+	if (flist[sort].type)
+	  fsort (a,n,sizeof(*a),cmp);
+	else
+	  fsort (a,n);
 	tt = rnd(mutime() - start,1000);
 	char *txt = "";
-	if (llong)
-	  verifyll (la,n);
-	else
-	  verify (a,n);
+	verify (a,n);
 	if (cmpres) {
-	  if (!llong) {
-	    printf ("sort time %d check with qsort() ... ",tt); fflush(stdout);
-	    int *b = malloc(n*sizeof(*b));
-	    srand(10);
-	    fill (b,n,m);
+	  printf ("sort time %d check with qsort() ... ",tt); fflush(stdout);
+	  int *b = malloc(n*sizeof(*b));
+	  srand(10);
+	  fill (b,n,m);
 
-	    qsort(b,n,sizeof(*b),cmp);
-	    if (memcmp(a,b,n*sizeof(*b)))
-	      printf ("Invalid sort\n");
-	    else 
-	      printf ("OK\n");
-	  } else {
-	    printf ("long long check not implemented\n");
-	  }
+	  qsort(b,n,sizeof(*b),cmp);
+	  if (memcmp(a,b,n*sizeof(*b)))
+	    printf ("Invalid sort\n");
+	  else 
+	    printf ("OK\n");
 	}
       }
     } else {

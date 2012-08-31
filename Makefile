@@ -1,5 +1,5 @@
 ifndef CFLAGS
-#CFLAGS        = -Dlinux -O3
+#CFLAGS        = -Dlinux -g -DTHREAD_CLOCK
 CFLAGS        = -Dlinux -O3 -DTHREAD_CLOCK
 endif
 LDFLAGS	      = -lrt
@@ -11,16 +11,16 @@ SRCS =  mutime.c measure.c int_sort.c data_sort.c \
 	yamsort.c int_yamsort.c data_yamsort.c \
 	int_mmsort.c data_mmsort.c \
 	int_aamsort.c data_aamsort.c \
+	int_gqsort.c data_gqsort.c \
 	timsort.c mmsort.c \
-	ll_sort.c ll_yamsort.c \
 	symmsort.c qsort.c 
 
 OBJS =  mutime.o int_sort.o data_sort.o \
 	yamsort.o int_yamsort.o data_yamsort.o \
 	int_mmsort.o data_mmsort.o \
 	int_aamsort.o data_aamsort.o \
+	int_gqsort.o data_gqsort.o \
 	timsort.o mmsort.o \
-	ll_sort.o ll_yamsort.o \
 	symmsort.o qsort.o
 
 
@@ -52,5 +52,5 @@ int_mmsort.o: mmsort_tmpl.h
 data_mmsort.o: mmsort_tmpl.h
 int_aamsort.o: aamsort_tmpl.h
 data_aamsort.o: aamsort_tmpl.h
-ll_sort.o: sort.h
-ll_yamsort.o: yamsort_tmpl.h
+int_gqsort.o: gqsort_tmpl.h
+data_gqsort.o: gqsort_tmpl.h
