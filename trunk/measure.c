@@ -164,6 +164,8 @@ extern void int_yamsort(),
   int_gqsort(),
   data_gqsort(),
   int_symsort(),
+  asm64_intqs(),
+  asm64_intrs(),
   data_symsort();
 
 static void
@@ -188,6 +190,8 @@ static struct sortfunc flist[] = {
   {"template Swenson quick_sort",0,int_quick_sort,data_quick_sort},
   {"template aamsort",0,int_aamsort,data_aamsort},
   {"template gnu_qsort",0,int_gqsort,data_gqsort},
+  {"linasm ArrayQuickSort",0,asm64_intqs,NULL},
+  {"linasm ArrayRadixSort",0,asm64_intrs,NULL},
   {NULL,0,NULL,NULL}
 };
 static int maxfl = sizeof(flist)/sizeof(flist[0])-1;
