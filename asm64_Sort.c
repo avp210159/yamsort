@@ -20,8 +20,10 @@ static int *tmp = NULL, ntmp;
 void
 asm64_freetmp ()
 {
-  if (tmp)
+  if (tmp) {
     free(tmp);
+    tmp = NULL;
+  }
 }
 
 void
