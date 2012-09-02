@@ -523,7 +523,7 @@ main (int ac, char **av)
   char *what[] = {"vmpeak","vmhwm",NULL};
   long long vmhwm = pri_mem(getpid(),what);
   
-  printf ("Cost %.3f GB*sec (VmHwM)\n",
+  printf ("Cost %.3f KByte*sec (VmHwM)\n",
 	  (double)vmhwm*(loops ? (tt-ttf)/(double)loops/1000:(double)tt/1000));
   exit (0);
 }
