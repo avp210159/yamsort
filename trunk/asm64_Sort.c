@@ -12,7 +12,7 @@ asm64_intqs (int *a, size_t n)
   Array_QuickSortAsc_sint32(a,n);
 #else
   printf ("Array_QuickSortAsc_sint32() Not implemented%s\n",
-	  sizeof(void *) == 4? " for 32-bit CPUs":"");
+	  sizeof(void *) == 4? " for 32-bit CPUs":" (try make ASM64=1)");
 #endif
 }
 
@@ -53,6 +53,6 @@ asm64_intrs (int *a, size_t n)
 
 #else
   printf ("Array_RadixSortAsc_sint32() Not implemented%s\n",
-	  sizeof(void *) == 4? " for 32-bit CPUs":"");
+	  sizeof(void *) == 4? " for 32-bit CPUs":" (try make ASM64=1)");
 #endif
 }
