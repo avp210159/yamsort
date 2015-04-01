@@ -110,137 +110,144 @@ yamsort (Yet Another Merge Sort).
 
 Файлы реализующие yamsort для C, C++.
 
-yamsort.c  	реализация в стиле qsort функции yamsort().  
-yamsort.h	декларация.  
-yamsort_tmpl.h	реализация в стиле template C .  
+yamsort.c  	-- реализация в стиле qsort функции yamsort().  
+yamsort.h	-- декларация.  
+yamsort_tmpl.h	-- реализация в стиле template C .  
+
+
 		семейства функций SORT_NAME_yamsort().  
 
-data_yamsort.c	генератор функции data_yamsort() из yamsort_tmpl.h  
-		для сортировки массива структур  
+data_yamsort.c	-- генератор функции data_yamsort() из yamsort_tmpl.h для сортировки массива структур  
 		
-		`struct data {
+		struct data {
 		  int  key;	
-		  double d; }.`
+		  double d; }.
 		  
-int_yamsort.c	генератор функции int_yamsort() из yamsort_tmpl.h  
-		для сортировки массива типа int.  
+int_yamsort.c	-- генератор функции int_yamsort() из yamsort_tmpl.h для сортировки массива типа int.  
 
 
 Файлы с программами для сравнения yamsort с другими сортировками.
 
-measure.c	вызов заданной сортировки, измерение времени ее работы
-		и требуемой памяти. 
+measure.c	-- вызов заданной сортировки, измерение времени ее работы
+		и требуемой памяти.  
 		Запущенная с флагом -h рассказывает о себе.
 
 mutime.c	функция для получения времени в микросекундах
 
-sort.h		скачан с  http://github.com/swenson/sort
-		Christopher Swenson (chris@caswenson.com)
-		Overview (из swenson-sort-3a7cb3d/README.rst)
-		--------
-	sort.h is an implementation a ton of sorting algorithms in C with a
-	user-defined type, that is defined at include time.
-	This means you don't have to pay the function call overhead of using
-	standard library routine.
-	You get the choice of many extra sorting routines as well, including:
-	* Shell sort
-	* Binary insertion sort
-	* Heap sort
-	* Quick sort
-	* Merge sort
-	* Bubble sort (ugh)
-	* Tim sort
-	If you don't know which one to use, you should probably use Tim sort.
+sort.h		-- скачан с  http://github.com/swenson/sort  
+
+    		Christopher Swenson (chris@caswenson.com)  
+    		Overview (из swenson-sort-3a7cb3d/README.rst)  
+    		--------
+    	sort.h is an implementation a ton of sorting algorithms in C with a
+    	user-defined type, that is defined at include time.
+    	This means you don't have to pay the function call overhead of using
+    	standard library routine.
+    	You get the choice of many extra sorting routines as well, including:
+    	* Shell sort
+    	* Binary insertion sort
+    	* Heap sort
+    	* Quick sort
+    	* Merge sort
+    	* Bubble sort (ugh)
+    	* Tim sort
+    	If you don't know which one to use, you should probably use Tim sort.  
+    	
 	       	я использую tim_sort() и quick_sort() отсюда для сравнения 
 		с yamsort.
 
-data_sort.c	генератор функций data_tim_sort() и data_quick_sort() 
-		из sort.h для сортировки массива структур 
-		struct data {
-		  int  key;	
-		  double d; }.
+data_sort.c	-- генератор функций data_tim_sort() и data_quick_sort() 
+		из sort.h для сортировки массива структур   
+		
+    		struct data {
+    		  int  key;	
+    		  double d; }.
 
-int_sort.c	генератор функций int_tim_sort() и int_quick_sort() 
+int_sort.c	-- генератор функций int_tim_sort() и int_quick_sort() 
 		из sort.h для сортировки массива типа int.
 
-timsort.c	реализация в стиле qsort функции tim_sort из sort.h
+timsort.c	-- реализация в стиле qsort функции tim_sort из sort.h
 
-qsort.c		_quicksort() неустойчивая быстрая сортировка
-		Copyright (C) 1991,1992,1996,1997,1999,2004 
-		Free Software Foundation, Inc.
-		This file is part of the GNU C Library.
-		Written by Douglas C. Schmidt (schmidt@ics.uci.edu).
+qsort.c		-- _quicksort() неустойчивая быстрая сортировка  
 
-symmsort.c	реализация в стиле qsort устойчивой сортировки слиянием
-		на основе алгоритма слияния на месте, описанного 
-		http://ak.hanyang.ac.kr/papers/esa2004.pdf
-		Stable Minimum Storage Merging by Symmetric Comparisons
-		Pok-Son Kim and Arne Kutzner.
+    		Copyright (C) 1991,1992,1996,1997,1999,2004 
+    		Free Software Foundation, Inc.
+    		This file is part of the GNU C Library.
+    		Written by Douglas C. Schmidt (schmidt@ics.uci.edu).
 
-mmsort.c	тривиальная реализация в стиле qsort устойчивой сортировки
+symmsort.c	-- реализация в стиле qsort устойчивой сортировки слиянием
+		на основе алгоритма слияния на месте, описанного   
+    		http://ak.hanyang.ac.kr/papers/esa2004.pdf
+    		Stable Minimum Storage Merging by Symmetric Comparisons
+    		Pok-Son Kim and Arne Kutzner.
+
+mmsort.c	-- тривиальная реализация в стиле qsort устойчивой сортировки
 		слиянием с дополнительной памятью N/2
 
-aamsort_tmpl.h	реализация в стиле template C неустойчивой сортировки
-		In-place Merge Sort implementation. (c)2012, Andrey Astrelin, 
-		astrelin@tochka.ru 
-		оригинал скачан с astr73.narod.ru/Files/msort.cpp
+aamsort_tmpl.h	-- реализация в стиле template C неустойчивой сортировки  
+    		In-place Merge Sort implementation. (c)2012, Andrey Astrelin, 
+    		astrelin@tochka.ru 
+    		оригинал скачан с astr73.narod.ru/Files/msort.cpp
 
-data_aamsort.c	генератор функции data_aamsort()
-		из aamsort_tmpl.h для сортировки массива структур 
-		struct data {
-		  int  key;	
-		  double d; }.
+data_aamsort.c	-- генератор функции data_aamsort()
+		из aamsort_tmpl.h для сортировки массива структур  
+		
+    		struct data {
+    		  int  key;	
+    		  double d; }.
 
-int_aamsort.c	генератор функции int_aamsort()
+int_aamsort.c	-- генератор функции int_aamsort()
 		из aamsort_tmpl.h для сортировки массива типа int.
 
-mmsort_tmpl.h	реализация в стиле template C mmsort и symsort
+mmsort_tmpl.h	-- реализация в стиле template C mmsort и symsort
 
-data_mmsort.c	генератор функций data_mmsort() и data_symsort() 
-		из mmsort_tmpl.h для сортировки массива структур 
-		struct data {
-		  int  key;	
-		  double d; }.
-int_mmsort.c	генератор функций int_mmsort() и int_symsort() 
+data_mmsort.c	-- генератор функций data_mmsort() и data_symsort() 
+		из mmsort_tmpl.h для сортировки массива структур  
+		
+    		struct data {
+    		  int  key;	
+    		  double d; }.
+    		  
+int_mmsort.c	-- генератор функций int_mmsort() и int_symsort() 
 		из mmsort_tmpl.h для сортировки массива типа int.
 
 
 Файлы для проведения измерений и получения результатов.
 
-ms.sh, m1.sh, m2.sh  shell-скрипты запуска ./measure с для замеров 
+ms.sh, m1.sh, m2.sh  -- shell-скрипты запуска ./measure с для замеров 
        	        времени выполнения и памяти для разных сортировок 
 		с разными параметрами.
        	        
-typescript-32	результаты прогона ms.sh на 32 и 64-bit Linux
-typescript-64
-typescript-32.64 результаты прогона ms.sh (./measure 32-bit) в 64-bit Linux
-
-prirestab.c	программа печати результатов запуска ms.sh 
+typescript-32	-- результаты прогона ms.sh на 32 и 64-bit Linux  
+typescript-64  
+typescript-32.64 -- результаты прогона ms.sh (./measure 32-bit) в 64-bit Linux  
+  
+prirestab.c	-- программа печати результатов запуска ms.sh 
 		в виде таблиц. 
 
-restab-32	таблицы, полученные  из typescript-32, typescript-32.64 
-restab-64	и typescript-64
+restab-32	-- таблицы, полученные  из typescript-32, typescript-32.64  
+restab-64	и typescript-64  
 restab-32.64
 
 
 --------------------------------------
 
-Оценки сортировок:
-N - размер массива
-		time		aux memory
-yamsort		O(N*log(N)) ?	O(sqrt(N))	stable
-tim_sort	O(N*log(N)) 	O(N/3) ?	stable
-mmsort		O(N*log(N))	O(N/2) 		stable
-qsort		O(N*log(N))	O(N)   		stable (unstable for huge N)
-quick_sort	O(N*log(N))	O(1)		unstable
-aamsort		O(N*log(N)) ?	O(1)		unstable
-symmsort	O(N*(log(N))^2)	O(1)		stable
+    Оценки сортировок:
+    N - размер массива
+    		time		aux memory
+    yamsort     O(N*log(N)) ?   O(sqrt(N))      stable
+    tim_sort	O(N*log(N)) 	O(N/3) ?	stable
+    mmsort	O(N*log(N))	O(N/2) 		stable
+    qsort	O(N*log(N))	O(N)   		stable (unstable for huge N)
+    quick_sort	O(N*log(N))	O(1)		unstable
+    aamsort	O(N*log(N)) ?	O(1)		unstable
+    symmsort	O(N*(log(N))^2)	O(1)		stable
 
-yamsort
-Отношение размера динамически выделенной памяти к объему массива int []
-K - количество malloc() блоков размером sqrt(N) для случайных int ключей
+    yamsort
+    Отношение размера динамически выделенной памяти к объему массива int []
+    K - количество malloc() блоков размером sqrt(N) для случайных int ключей
 
-array N	  array байт	  queue K   queue (bytes)/array
+    array N	  array байт	  queue K   queue (bytes)/array
 1000  	  4000		  4	    	  0.188
 5000	  20000		  6	    	  0.103
 10000	  40000		  7	    	  0.081
