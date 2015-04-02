@@ -280,6 +280,7 @@ Costd   "стоимость" сортировки struct data [] в KBytes*sec.
 		    DATA TABLES
 
 table1 [64-bits] 1000 (4000/16000 bytes max_key_value 2147483646)
+<pre>
                           VmHWMi timei    Costi      VmHWMd timed    Costd   
 system qsort                724    0.143      0.104    748    0.104      0.078
 libc _quicksort             676    0.081      0.055    684    0.092      0.063
@@ -289,6 +290,7 @@ template mmsort             684    0.040      0.027    700    0.046      0.032
 template symmsort           672    0.098      0.066    688    0.102      0.070
 template Swenson quick_so   672    0.040      0.027    684    0.044      0.030
 template aamsort            680    0.052      0.035    688    0.059      0.041
+</pre>
 
 table2 [64-bits] 5000 (20000/80000 bytes max_key_value 2147483646)
                           VmHWMi timei    Costi      VmHWMd timed    Costd   
